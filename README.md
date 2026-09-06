@@ -19,7 +19,7 @@ Built by [@MinoForge-Official](https://github.com/MinoForge-Official)
 <br/>
 
 [![npm](https://img.shields.io/npm/v/token-lint?style=flat-square&color=black)](https://www.npmjs.com/package/token-lint)
-[![license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![license](https://img.shields.io/badge/license-Custom-red?style=flat-square)](LICENSE)
 [![dependencies](https://img.shields.io/badge/dependencies-0-success?style=flat-square)](package.json)
 [![node](https://img.shields.io/badge/node-%3E%3D20-green?style=flat-square)](package.json)
 
@@ -183,5 +183,5 @@ console.log(`Estimated Gemini Flash savings: $${report.savings.geminiFlashSaving
 ---
 
 ### License
-
-[MIT](LICENSE) © 2026 [@MinoForge-Official](https://github.com/MinoForge-Official).
+ 
+[Custom Non-Commercial & Source-Available License](LICENSE) © 2026 MinoForge-Official. All rights reserved. Unauthorized selling, re-uploading, and impersonation are strictly prohibited.
