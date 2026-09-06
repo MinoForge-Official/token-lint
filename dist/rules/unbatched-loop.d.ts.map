@@ -1,1 +1,1 @@
-{"version":3,"file":"unbatched-loop.d.ts","sourceRoot":"","sources":["../../src/rules/unbatched-loop.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,aAAa,CAAC;AAEhD,wBAAgB,mBAAmB,CAAC,QAAQ,EAAE,MAAM,EAAE,OAAO,EAAE,MAAM,GAAG,iBAAiB,EAAE,CAwD1F"}
+{"version":3,"file":"unbatched-loop.d.ts","sourceRoot":"","sources":["../../src/rules/unbatched-loop.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,iBAAiB,EAAE,MAAM,aAAa,CAAC;AAEhD,wBAAgB,mBAAmB,CAAC,QAAQ,EAAE,MAAM,EAAE,OAAO,EAAE,MAAM,GAAG,iBAAiB,EAAE,CAwD1F"}

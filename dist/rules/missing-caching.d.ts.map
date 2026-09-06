@@ -1,1 +1,1 @@
-{"version":3,"file":"missing-caching.d.ts","sourceRoot":"","sources":["../../src/rules/missing-caching.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,aAAa,CAAC;AAEhD,wBAAgB,mBAAmB,CAAC,QAAQ,EAAE,MAAM,EAAE,OAAO,EAAE,MAAM,GAAG,iBAAiB,EAAE,CA+B1F"}
+{"version":3,"file":"missing-caching.d.ts","sourceRoot":"","sources":["../../src/rules/missing-caching.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,iBAAiB,EAAE,MAAM,aAAa,CAAC;AAEhD,wBAAgB,mBAAmB,CAAC,QAAQ,EAAE,MAAM,EAAE,OAAO,EAAE,MAAM,GAAG,iBAAiB,EAAE,CA+B1F"}
