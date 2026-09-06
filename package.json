@@ -1,0 +1,45 @@
+{
+  "name": "token-lint",
+  "version": "1.0.0",
+  "description": "Static code analyzer that hunts down AI token waste & optimizes LLM API costs. Catch unpruned JSON payloads, unbatched LLM loops, and missing prompt cache breakpoints.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "token-lint": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "action.yml"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "test": "node --test dist/tests/**/*.test.js",
+    "pretest": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "token-optimization",
+    "openai",
+    "anthropic",
+    "gemini",
+    "cost-optimizer",
+    "static-analysis",
+    "linter",
+    "prompt-engineering"
+  ],
+  "author": "MinoForge-Official",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MinoForge-Official/token-lint.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "typescript": "^5.7.3"
+  }
+}

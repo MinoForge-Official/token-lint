@@ -1,0 +1,38 @@
+name: 'Token Lint - AI Cost & Token Optimizer'
+description: 'Audit your codebase for LLM prompt token leaks and calculate projected cost savings in CI.'
+author: 'MinoForge-Official'
+branding:
+  icon: 'dollar-sign'
+  color: 'purple'
+
+inputs:
+  path:
+    description: 'Target directory to scan'
+    required: false
+    default: '.'
+  strict:
+    description: 'Exit with error code 1 if token waste is detected'
+    required: false
+    default: 'false'
+  ignore:
+    description: 'Comma-separated list of rule names to ignore'
+    required: false
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run token-lint
+      shell: bash
+      run: |
+        STRICT_FLAG=""
+        if [ "${{ inputs.strict }}" = "true" ]; then
+          STRICT_FLAG="--strict"
+        fi
+
+        IGNORE_FLAG=""
+        if [ -n "${{ inputs.ignore }}" ]; then
+          IGNORE_FLAG="--ignore ${{ inputs.ignore }}"
+        fi
+
+        npx --yes token-lint "${{ inputs.path }}" $STRICT_FLAG $IGNORE_FLAG

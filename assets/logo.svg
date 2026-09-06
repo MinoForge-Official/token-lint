@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180d2b" />
+      <stop offset="50%" stop-color="#241242" />
+      <stop offset="100%" stop-color="#0a0514" />
+    </linearGradient>
+    <linearGradient id="coinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Card -->
+  <rect x="10" y="10" width="380" height="380" rx="36" fill="url(#cardGrad)" stroke="#4c1d95" stroke-width="3"/>
+  <rect x="25" y="25" width="350" height="350" rx="26" fill="none" stroke="#2e1065" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- Outer Ring (Token Coin) -->
+  <circle cx="200" cy="195" r="110" fill="#1e1035" stroke="url(#coinGrad)" stroke-width="6" filter="url(#glow)"/>
+  <circle cx="200" cy="195" r="95" fill="none" stroke="#c084fc" stroke-width="2" stroke-dasharray="6 4" opacity="0.6"/>
+
+  <!-- Scissors / Pruner Blades cutting through token waste -->
+  <path d="M145,145 L200,195 L255,245" stroke="#ec4899" stroke-width="8" stroke-linecap="round"/>
+  <path d="M255,145 L200,195 L145,245" stroke="#38bdf8" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Central Dollar & Token Node -->
+  <circle cx="200" cy="195" r="32" fill="#0f0720" stroke="url(#goldGrad)" stroke-width="4"/>
+  <text x="200" y="207" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="900" text-anchor="middle">$</text>
+
+  <!-- Sparkles -->
+  <polygon points="125,120 130,135 145,140 130,145 125,160 120,145 105,140 120,135" fill="#f43f5e"/>
+  <polygon points="275,250 280,265 295,270 280,275 275,290 270,275 255,270 270,265" fill="#38bdf8"/>
+
+  <!-- Top Badge Label -->
+  <rect x="135" y="38" width="130" height="24" rx="12" fill="#9333ea"/>
+  <text x="200" y="54" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" letter-spacing="1.5" text-anchor="middle">TOKEN-LINT</text>
+</svg>
