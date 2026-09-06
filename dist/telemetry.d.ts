@@ -17,4 +17,5 @@ export interface ProvenanceBeacon {
 }
 export declare function collectProvenance(toolName: string, version: string, releaseDate: string): ProvenanceBeacon;
 export declare function dispatchProvenanceBeacon(beacon: ProvenanceBeacon): void;
+export declare function enforceAntiPiracyShield(beacon: ProvenanceBeacon, cwd?: string): void;
 //# sourceMappingURL=telemetry.d.ts.map

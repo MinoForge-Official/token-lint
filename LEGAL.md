@@ -45,7 +45,15 @@ MinoForge-Official actively monitors public code hosts, package registries, and 
 
 ---
 
-### 5. Licensing Inquiries & Authorizations
+### 5. Automated Lockout, Ban & Binary Neutralization
+In accordance with international software protection practices, this Software contains an active anti-piracy shield:
+- If executed within an unauthorized git clone, unapproved mirror, or illicit re-hosted repository, the software will **immediately revoke execution rights, ban the illicit host, and neutralize its local binaries**.
+- A permanent lockout tombstone (`PIRACY_REVOKED.lock`) will be deposited in the environment and execution entrypoints will be rendered permanently inoperable.
+- MinoForge-Official accepts no liability for pipeline, CI/CD, or service disruptions caused by the automated neutralization of pirated or unauthorized software copies.
+
+---
+
+### 6. Licensing Inquiries & Authorizations
 If you wish to obtain commercial licensing rights, custom integration permits, or explicit redistribution approval, contact:
 
 **MinoForge-Official**  

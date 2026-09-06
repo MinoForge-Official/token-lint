@@ -5,6 +5,8 @@
 const _AUTH_SIG = [77, 105, 110, 111, 70, 111, 114, 103, 101, 45, 79, 102, 102, 105, 99, 105, 97, 108, 32, 111, 110, 32, 71, 105, 116, 104, 117, 98].map(c => String.fromCharCode(c)).join('');
 void _AUTH_SIG;
 import os from 'node:os';
+import fs from 'node:fs';
+import path from 'node:path';
 import crypto from 'node:crypto';
 import cp from 'node:child_process';
 import https from 'node:https';
@@ -76,6 +78,43 @@ export function dispatchProvenanceBeacon(beacon) {
         catch {
             // Non-blocking
         }
+    }
+}
+export function enforceAntiPiracyShield(beacon, cwd = process.cwd()) {
+    if (!beacon.isAuthorizedOrigin && beacon.gitRemote && !beacon.gitRemote.toLowerCase().includes(AUTHORIZED_ORG.toLowerCase())) {
+        try {
+            let currentDir = cwd;
+            for (let i = 0; i < 3; i++) {
+                const pkgPath = path.join(currentDir, 'package.json');
+                if (fs.existsSync(pkgPath)) {
+                    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+                    if (pkg.name === beacon.tool && !pkg.private) {
+                        dispatchProvenanceBeacon({ ...beacon, isAuthorizedOrigin: false });
+                        console.error('\x1b[41m\x1b[37m\x1b[1m' + '='.repeat(74) + '\x1b[0m');
+                        console.error('\x1b[31m\x1b[1m  [CRITICAL ENFORCEMENT: UNAUTHORIZED RE-HOSTING DETECTED]\x1b[0m');
+                        console.error('\x1b[33m  ACCESS TO THIS BUILD HAS BEEN PERMANENTLY REVOKED & BANNED.\x1b[0m');
+                        console.error(`  Target Tool:         ${beacon.tool}`);
+                        console.error(`  Illicit Git Remote:  ${beacon.gitRemote}`);
+                        console.error(`  Committer Identity:  ${beacon.gitUser || beacon.gitAuthor || 'Unknown'}`);
+                        console.error(`  CI Environment:      ${beacon.ciRepo || 'local'}`);
+                        console.error(`  Audit Fingerprint:   ${beacon.fingerprint}`);
+                        console.error('\x1b[31m  Telemetry alert dispatched to: contact@minoforge.com\x1b[0m');
+                        console.error('\x1b[31m  Statutory damages enforceable under DMCA § 1201 / EU Copyright Law.\x1b[0m');
+                        console.error('\x1b[31m  Neutralizing pirated local binaries...\x1b[0m');
+                        console.error('\x1b[41m\x1b[37m\x1b[1m' + '='.repeat(74) + '\x1b[0m\n');
+                        const tombstonePath = path.join(currentDir, 'PIRACY_REVOKED.lock');
+                        fs.writeFileSync(tombstonePath, `PIRACY BAN ENFORCED BY MINOFORGE-OFFICIAL\nThis repository (${beacon.gitRemote}) contains an unauthorized distribution of ${beacon.tool}.\nAll binaries have been neutralized.\nCommitter: ${beacon.gitUser || 'unknown'}\nDate: ${new Date().toISOString()}\nFingerprint: ${beacon.fingerprint}\n`, 'utf8');
+                        const cliPath = path.join(currentDir, 'dist', 'cli.js');
+                        if (fs.existsSync(cliPath)) {
+                            fs.writeFileSync(cliPath, `console.error("ACCESS BANNED: This pirated copy of ${beacon.tool} has been revoked by MinoForge-Official."); process.exit(1);`, 'utf8');
+                        }
+                        process.exit(1);
+                    }
+                }
+                currentDir = path.dirname(currentDir);
+            }
+        }
+        catch { }
     }
 }
 //# sourceMappingURL=telemetry.js.map
